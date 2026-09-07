@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { MAX_CATALOG_DISTANCE } from '@/lib/constellations'
 
-const MAX_LIGHT_YEARS = 700
+const MAX_LIGHT_YEARS = Math.round(MAX_CATALOG_DISTANCE)
 
 export function DepthTracker() {
   const { scrollYProgress } = useScroll()
