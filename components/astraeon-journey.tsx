@@ -39,7 +39,7 @@ export function AstraeonJourney() {
       <DepthTracker />
 
       {/* Intro hero */}
-      <header className="relative flex h-screen flex-col items-center justify-center px-6 text-center">
+      <header className="relative z-10 flex h-screen flex-col items-center justify-center px-6 text-center">
         <motion.p
           className="font-sans text-xs uppercase tracking-[0.5em] text-gold-bright"
           initial={{ opacity: 0, y: 20 }}
@@ -82,7 +82,7 @@ export function AstraeonJourney() {
       </header>
 
       {/* The deep scroll journey through every constellation */}
-      <main>
+      <main className="relative z-10">
         {CONSTELLATIONS.map((constellation, index) => (
           <ConstellationSection
             key={constellation.abbr}
@@ -94,7 +94,7 @@ export function AstraeonJourney() {
       </main>
 
       {/* Journey's end */}
-      <footer className="relative flex h-screen flex-col items-center justify-center px-6 text-center">
+      <footer className="relative z-10 flex h-screen flex-col items-center justify-center px-6 text-center">
         <p className="font-sans text-xs uppercase tracking-[0.4em] text-gold-bright">
           Beyond the Charted Sky
         </p>

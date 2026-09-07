@@ -38,16 +38,27 @@ export function ConstellationSection({
   index: number
   onSelect: (selection: SelectedStar) => void
 }) {
+  const alignRight = index % 2 === 1
+
   const points = useMemo(() => {
     const rnd = mulberry32(seedFrom(constellation.abbr))
-    return constellation.stars.map((star) => ({
-      star,
-      x: 14 + rnd() * 72,
-      y: 20 + rnd() * 62,
-    }))
-  }, [constellation])
-
-  const alignRight = index % 2 === 1
+    return constellation.stars.map((star) => {
+      let x = 10 + rnd() * 80
+      const y = 18 + rnd() * 68
+      // Keep stars clear of the editorial text panel, which occupies the
+      // top ~52% of the panel side. Push any star that lands there across.
+      if (y < 52) {
+        if (alignRight) {
+          // Panel is top-right -> keep stars on the left band.
+          if (x > 52) x = 10 + rnd() * 40
+        } else {
+          // Panel is top-left -> keep stars on the right band.
+          if (x < 48) x = 58 + rnd() * 34
+        }
+      }
+      return { star, x, y }
+    })
+  }, [constellation, alignRight])
   const polyline = points.map((p) => `${p.x},${p.y}`).join(" ")
 
   return (
