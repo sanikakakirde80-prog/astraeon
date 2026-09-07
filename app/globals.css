@@ -1,0 +1,57 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --color-background: #070706;
+  --color-foreground: #f4efe5;
+  --color-void: #070706;
+  --color-gold: #755b3f;
+  --color-gold-bright: #a68a63;
+  --color-starlight: #f4efe5;
+
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-quicksand), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: #070706;
+  color: #f4efe5;
+  font-family: var(--font-sans);
+}
+
+@media (pointer: fine) {
+  .cursor-none,
+  .cursor-none * {
+    cursor: none;
+  }
+}
+
+@keyframes astraeon-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+}
+
+@keyframes astraeon-twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
