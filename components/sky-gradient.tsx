@@ -12,7 +12,7 @@ export function SkyGradient() {
       {/* Base sky: navy blue fading to black, top to bottom */}
       <div
         aria-hidden="true"
-        className="fixed inset-0 -z-30"
+        className="fixed inset-0 z-0"
         style={{
           background:
             "linear-gradient(180deg, #0a1430 0%, #070d20 22%, #050813 45%, #03040a 70%, #010103 100%)",
@@ -21,7 +21,7 @@ export function SkyGradient() {
       {/* Deepening veil driven by scroll depth */}
       <motion.div
         aria-hidden="true"
-        className="fixed inset-0 -z-20 bg-black"
+        className="fixed inset-0 z-0 bg-black"
         style={{ opacity: veil }}
       />
     </>

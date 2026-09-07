@@ -42,18 +42,18 @@ export function StarfieldCanvas() {
       canvas.style.height = `${height}px`
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
 
-      const density = Math.round((width * height) / 2600)
-      const count = Math.max(160, Math.min(520, density))
+      const density = Math.round((width * height) / 1500)
+      const count = Math.max(280, Math.min(900, density))
       stars = Array.from({ length: count }, () => {
         const speed = 0.03 + Math.random() * 0.14
         const angle = Math.random() * Math.PI * 2
         return {
           x: Math.random() * width,
           y: Math.random() * height,
-          r: Math.random() * 1.3 + 0.35,
+          r: Math.random() * 1.4 + 0.45,
           vx: Math.cos(angle) * speed,
           vy: Math.sin(angle) * speed,
-          base: 0.25 + Math.random() * 0.65,
+          base: 0.4 + Math.random() * 0.6,
           twPhase: Math.random() * Math.PI * 2,
           twSpeed: 0.6 + Math.random() * 1.8,
           hue: HUES[Math.floor(Math.random() * HUES.length)],
@@ -111,7 +111,7 @@ export function StarfieldCanvas() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 -z-10"
+      className="pointer-events-none fixed inset-0 z-0"
     />
   )
 }
